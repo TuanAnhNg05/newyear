@@ -190,8 +190,10 @@ let neonOffset = 0;
 function drawHeart(x,y){
 
     // phóng to mạnh hơn
-    if(heartScale < 1.6){
-        heartScale += 0.03;
+    let maxScale = Math.min(canvas.width, canvas.height) / 1100;
+
+if(heartScale < maxScale){
+    heartScale += 0.03;
     }
 
     heartPulse += 0.05;
@@ -294,7 +296,7 @@ ctx.restore();
 if(p.alpha<=0)particles.splice(i,1);
 });
 if(heartActive){
-        drawHeart(canvas.width/2, canvas.height/3);
+        drawHeart(canvas.width/2, canvas.height/2.5);
     }
 }
 animate();
